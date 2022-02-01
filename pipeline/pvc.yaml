@@ -1,0 +1,14 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  annotations:
+    volume.beta.kubernetes.io/storage-provisioner: ibm.io/ibmc-block
+  name: yasuki-oshiro-pvc
+  namespace: yasu
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: ibmc-block-gold
