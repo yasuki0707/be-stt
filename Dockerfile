@@ -2,12 +2,12 @@ FROM node:12-alpine
 
 WORKDIR /usr/src/app
 
-COPY package*.json ./
+COPY . .
+#COPY package*.json tsconfig.json
 
 RUN npm install --production
 RUN npm run tsc
 
-COPY . .
 
 EXPOSE 3000
 
