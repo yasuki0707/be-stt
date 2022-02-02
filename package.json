@@ -39,6 +39,7 @@
     "dev": "ts-node -r tsconfig-paths/register src/index.ts",
     "dev:watch": "ts-node-dev --respawn src/index.ts",
     "tsc": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./dist",
+    "clean": "rm -rf dist",
     "build": "npm-run-all clean tsc",
     "start": "node --trace-warnings .",
     "eslint": "eslint src/index.ts",
