@@ -23,18 +23,18 @@ spec:
         set -e
         APP_NAMESPACE="$(params.app-namespace)"
 
-        echo "debug"
-        ls -la > debug
-        cat debug
-
         echo -e "Deploying into: ${APP_NAMESPACE}"
         kubectl apply -n ${APP_NAMESPACE} -f ./manifests.yaml --validate=false > results.out
+
+        echo "debug"
+        ls -la
+
         cat results.out
     - name: verify-deploy
       image: docker.io/enzobarrett/kubectl:latest
       script: |
         #!/bin/sh
-        cd source
+        cd source/k8s
         set -e
         APP_NAMESPACE="$(params.app-namespace)"
         APP_NAME="$(params.app-name)"
