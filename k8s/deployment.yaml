@@ -2,8 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-  #    app.openshift.io/vcs-ref: f7580aa1eb6f7176705176e201ecff4de93edafb
-  #    app.openshift.io/vcs-uri: https://github.com/yasuki0707/be-stt
+    app.openshift.io/vcs-ref: f7580aa1eb6f7176705176e201ecff4de93edafb
+    app.openshift.io/vcs-uri: https://github.com/yasuki0707/be-stt
   labels:
     app: yasuki-oshiro-pipeline-from-scratch
     app.kubernetes.io/instance: yasuki-oshiro-pipeline-from-scratch
