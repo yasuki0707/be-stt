@@ -2,9 +2,9 @@
 kubectl create sa build-bot
 
 kubectl patch serviceaccount build-bot \
-    -p '{"secrets": [{"name": "quay-io-yasu-be-password"}]}'
+    -p '{"secrets": [{"name": "quay-io-stt-be-password"}]}'
 kubectl patch serviceaccount build-bot \
-    -p '{"imagePullSecrets": [{"name": "quay-io-yasu-be-password"}]}'
+    -p '{"imagePullSecrets": [{"name": "quay-io-stt-be-password"}]}'
 
 kubectl get sa \
     -n yasu \

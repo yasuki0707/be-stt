@@ -1,11 +1,11 @@
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-  generateName: yasuki-oshiro-pipeline-from-scratch-pipeline-run-
+  generateName: stt-be-pipeline-run-
 spec:
   serviceAccountName: build-bot
   pipelineRef:
-    name: yasuki-oshiro-pipeline-from-scratch-pipeline
+    name: stt-be-pipeline
   workspaces:
     - name: pipeline-shared-data
       persistentVolumeClaim:

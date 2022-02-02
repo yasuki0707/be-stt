@@ -5,25 +5,25 @@ metadata:
     app.openshift.io/vcs-ref: f7580aa1eb6f7176705176e201ecff4de93edafb
     app.openshift.io/vcs-uri: https://github.com/yasuki0707/be-stt.git
   labels:
-    app: yasuki-oshiro-pipeline-from-scratch
-    app.kubernetes.io/instance: yasuki-oshiro-pipeline-from-scratch
-    app.kubernetes.io/name: yasuki-oshiro-pipeline-from-scratch
+    app: stt-be
+    app.kubernetes.io/instance: stt-be
+    app.kubernetes.io/name: stt-be
     app.openshift.io/runtime: js
-  name: yasuki-oshiro-pipeline-from-scratch
+  name: stt-be
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app.kubernetes.io/instance: yasuki-oshiro-pipeline-from-scratch
-      app.kubernetes.io/name: yasuki-oshiro-pipeline-from-scratch
+      app.kubernetes.io/instance: stt-be
+      app.kubernetes.io/name: stt-be
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app.kubernetes.io/instance: yasuki-oshiro-pipeline-from-scratch
-        app.kubernetes.io/name: yasuki-oshiro-pipeline-from-scratch
+        app.kubernetes.io/instance: stt-be
+        app.kubernetes.io/name: stt-be
     spec:
       containers:
         - env:
@@ -42,7 +42,7 @@ spec:
           #   periodSeconds: 10
           #   successThreshold: 1
           #   timeoutSeconds: 1
-          name: yasuki-oshiro-pipeline-from-scratch
+          name: stt-be
           ports:
             - containerPort: 3000
               name: http

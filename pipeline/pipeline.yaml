@@ -3,7 +3,7 @@ kind: Pipeline
 metadata:
   annotations:
     app.openshift.io/runtime: nodejs
-  name: yasuki-oshiro-pipeline-from-scratch-pipeline
+  name: stt-be-pipeline
 spec:
   workspaces:
     - name: pipeline-shared-data
@@ -80,7 +80,7 @@ spec:
         - name: app-namespace
           value: yasu
         - name: app-name
-          value: yasuki-oshiro-pipeline-from-scratch
+          value: stt-be-pipeline
       taskRef:
         kind: Task
         name: test-deploy

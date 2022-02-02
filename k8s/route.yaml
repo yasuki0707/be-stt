@@ -10,6 +10,6 @@ spec:
     termination: edge
   to:
     kind: Service
-    name: yasuki-oshiro-pipeline-from-scratch
+    name: stt-be
     weight: 100
   wildcardPolicy: None
