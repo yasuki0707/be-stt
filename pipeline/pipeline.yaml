@@ -18,7 +18,7 @@ spec:
     - name: clone-repository
       params:
         - name: url
-          value: https://github.com/yasuki0707/be-stt
+          value: https://github.com/yasuki0707/be-stt.git
       taskRef:
         kind: Task
         name: git-clone
