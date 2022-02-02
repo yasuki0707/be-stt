@@ -26,8 +26,7 @@ spec:
         echo -e "Deploying into: ${APP_NAMESPACE}"
         kubectl apply -n ${APP_NAMESPACE} -f ./manifests.yaml --validate=false > results.out
 
-        echo "debug"
-        ls -la
+        cat ./manifests.yaml
 
         cat results.out
     - name: verify-deploy
