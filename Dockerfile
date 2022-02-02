@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 COPY . .
 
 RUN npm install --production
-RUN npm run tsc
+RUN npm run build
 
 EXPOSE 3000
 
