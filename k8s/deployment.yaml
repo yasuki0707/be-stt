@@ -32,7 +32,7 @@ spec:
             - name: LOG_LEVEL
               value: debug
           image: quay.io/yasuki_oshiro_ibm/be-stt
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           # livenessProbe:
           #   failureThreshold: 3
           #   httpGet:
