@@ -13,4 +13,4 @@ spec:
         - github:
             eventTypes: ['push']
         - cel:
-            filter: "body.ref.split('/')[1] == 'tags' && body.ref.split('/')[2] == 'main'"
+            filter: "body.ref.split('/')[1] == 'heads' && body.ref.split('/')[2] == 'main'"
