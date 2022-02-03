@@ -3,7 +3,7 @@ kind: EventListener
 metadata:
   name: stt-be
 spec:
-  serviceAccountName: tekton-triggers-sa
+  serviceAccountName: pipeline
   triggers:
     - template:
         ref: stt-be-triggertemplate
