@@ -8,7 +8,7 @@ The project is yet just fundamental, though it's designed to be added new featur
 ## Features
 
 - Search specified keyWords in text data which is converted from audio data.
-- Output the result in the form of CSV or to Stdout
+- Output the result in the form of CSV or to Stdout.
 
 ---
 
