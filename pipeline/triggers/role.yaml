@@ -24,12 +24,12 @@ rules:
       - pipelineresources
     verbs:
       - create
-  - apiGroups:
-      - ''
-    resources:
-      - configmaps
-    verbs:
-      - list
+  # - apiGroups:
+  #     - ''
+  #   resources:
+  #     - configmaps
+  #   verbs:
+  #     - list
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
