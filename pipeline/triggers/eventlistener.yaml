@@ -1,0 +1,16 @@
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: EventListener
+metadata:
+  name: stt-be
+spec:
+  serviceAccountName: tekton-triggers-sa
+  triggers:
+    - template:
+        ref: stt-be-triggertemplate
+      bindings:
+        - ref: stt-be-pipeline-triggerbinding
+      interceptors:
+        - github:
+            eventTypes: ['push']
+        - cel:
+            filter: "body.ref.split('/')[1] == 'tags' && body.ref.split('/')[2] == 'main'"
