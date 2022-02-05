@@ -7,30 +7,31 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: tekton-triggers-role
+  namespace: yasu
 rules:
   - apiGroups:
       - tekton.dev
       - triggers.tekton.dev
     resources:
+      - triggers
       - eventlisteners
       - triggerbindings
       - triggertemplates
-      - pipelineresources
-    verbs:
-      - get
-  - apiGroups:
-      - tekton.dev
-    resources:
       - pipelineruns
       - pipelineresources
     verbs:
+      - get
       - create
-  # - apiGroups:
-  #     - ''
-  #   resources:
-  #     - configmaps
-  #   verbs:
-  #     - list
+      - watach
+      - list
+  - apiGroups:
+      - ''
+    resources:
+      - configmaps
+    verbs:
+      - get
+      - list
+      - watch
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
