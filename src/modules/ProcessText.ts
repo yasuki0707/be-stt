@@ -13,7 +13,7 @@ export const processText = (text: string, keyWords: string[]): TSearchedText[] =
 
   const foundKeyWords: TSearchedText[] = [];
   const n = text.length;
-  console.log(n, text);
+  console.log(`音声データのテキスト:${text}(${n})`);
   uniqueKeyWords.forEach((k) => {
     let i = 0;
     while (i < n) {
