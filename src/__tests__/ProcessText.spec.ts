@@ -1,5 +1,5 @@
 import { TSearchedText } from '@/types/SearchedText';
-import { processText } from '../modules/ProcessText';
+import { processText } from '@/modules/ProcessText';
 
 describe('Text provided should be processed correctly.', (): void => {
   describe('1 keyWord is specified', (): void => {
@@ -9,7 +9,7 @@ describe('Text provided should be processed correctly.', (): void => {
       const expected = [
         {
           keyWord: 'テスト',
-          pos: 3,
+          pos: 4,
           redundantKeyWord: 'これはテストです。'
         }
       ];
@@ -22,12 +22,12 @@ describe('Text provided should be processed correctly.', (): void => {
       const expected = [
         {
           keyWord: 'テスト',
-          pos: 6,
+          pos: 7,
           redundantKeyWord: 'れは1回目テストです。あれ'
         },
         {
           keyWord: 'テスト',
-          pos: 18,
+          pos: 19,
           redundantKeyWord: 'れは2回目テストです。'
         }
       ];
@@ -49,12 +49,12 @@ describe('Text provided should be processed correctly.', (): void => {
       const expected = [
         {
           keyWord: 'テスト',
-          pos: 3,
+          pos: 4,
           redundantKeyWord: 'これはテストです。Th'
         },
         {
           keyWord: 'TEST',
-          pos: 17,
+          pos: 18,
           redundantKeyWord: 's is TEST.'
         }
       ];
@@ -62,28 +62,27 @@ describe('Text provided should be processed correctly.', (): void => {
       expect(result).toStrictEqual(expected);
     });
     test('1 keyWords found 1 time, others found multiple times', (): void => {
-      const text =
-        'これはテストです。This is TEST.そしてあれもテストです。テストがいっぱいですね。';
+      const text = 'これはテストです。This is TEST.そしてあれもテストです。テストがいっぱいですね。';
       const keyWords = ['テスト', 'TEST'];
       const expected = [
         {
           keyWord: 'テスト',
-          pos: 3,
+          pos: 4,
           redundantKeyWord: 'これはテストです。Th'
         },
         {
           keyWord: 'テスト',
-          pos: 28,
+          pos: 29,
           redundantKeyWord: 'してあれもテストです。テス'
         },
         {
           keyWord: 'テスト',
-          pos: 34,
+          pos: 35,
           redundantKeyWord: 'ストです。テストがいっぱい'
         },
         {
           keyWord: 'TEST',
-          pos: 17,
+          pos: 18,
           redundantKeyWord: 's is TEST.そしてあ'
         }
       ];
@@ -97,27 +96,27 @@ describe('Text provided should be processed correctly.', (): void => {
       const expected = [
         {
           keyWord: 'テスト',
-          pos: 3,
+          pos: 4,
           redundantKeyWord: 'これはテストです。Th'
         },
         {
           keyWord: 'テスト',
-          pos: 28,
+          pos: 29,
           redundantKeyWord: 'してあれもテストです。テス'
         },
         {
           keyWord: 'テスト',
-          pos: 34,
+          pos: 35,
           redundantKeyWord: 'ストです。テストがいっぱい'
         },
         {
           keyWord: 'TEST',
-          pos: 17,
+          pos: 18,
           redundantKeyWord: 's is TEST.そしてあ'
         },
         {
           keyWord: 'TEST',
-          pos: 54,
+          pos: 55,
           redundantKeyWord: 'this TEST? Yes'
         }
       ];
@@ -132,27 +131,27 @@ describe('Text provided should be processed correctly.', (): void => {
       const expected = [
         {
           keyWord: 'テスト',
-          pos: 0,
+          pos: 1,
           redundantKeyWord: 'テストテストテス'
         },
         {
           keyWord: 'テスト',
-          pos: 3,
+          pos: 4,
           redundantKeyWord: 'テストテストテストテス'
         },
         {
           keyWord: 'テスト',
-          pos: 6,
+          pos: 7,
           redundantKeyWord: 'ストテストテストテストテス'
         },
         {
           keyWord: 'テスト',
-          pos: 9,
+          pos: 10,
           redundantKeyWord: 'ストテストテストテスト'
         },
         {
           keyWord: 'テスト',
-          pos: 12,
+          pos: 13,
           redundantKeyWord: 'ストテストテスト'
         }
       ];
@@ -163,11 +162,6 @@ describe('Text provided should be processed correctly.', (): void => {
       const text = 'ああああああ';
       const keyWords = ['あ'];
       const expected = [
-        {
-          keyWord: 'あ',
-          pos: 0,
-          redundantKeyWord: 'ああああああ'
-        },
         {
           keyWord: 'あ',
           pos: 1,
@@ -191,6 +185,11 @@ describe('Text provided should be processed correctly.', (): void => {
         {
           keyWord: 'あ',
           pos: 5,
+          redundantKeyWord: 'ああああああ'
+        },
+        {
+          keyWord: 'あ',
+          pos: 6,
           redundantKeyWord: 'ああああああ'
         }
       ];

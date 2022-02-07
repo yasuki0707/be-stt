@@ -44,7 +44,7 @@
     "start": "node --trace-warnings .",
     "eslint": "eslint src/index.ts",
     "format": "prettier --write '**/*.{js,ts,json}'",
-    "test": "echo test has passed",
+    "test": "jest",
     "test:ut": "jest",
     "test:it": "npm run tsc; sh/test.sh",
     "test:it:ok": "npm run test:it ./resources/audio/public_audio_ja-JP_Narrowband-sample.wav 山田",
