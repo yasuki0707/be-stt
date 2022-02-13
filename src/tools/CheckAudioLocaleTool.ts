@@ -15,13 +15,13 @@ const wrapper = async () => {
     console.log('audio file is not specified.');
     return;
   }
-  const text = await convertSpeechToText(audioFile);
-  if (!text) {
-    console.log("couldn't convert audio data to text.");
-    return;
-  }
+  // const text = await convertSpeechToText(audioFile);
+  // if (!text) {
+  //   console.log("couldn't convert audio data to text.");
+  //   return;
+  // }
 
-  console.log(`is audio file ${locale}?:`, await checkAudioLocale(text, locale));
+  // console.log(`is audio file ${locale}?:`, await checkAudioLocale(text, locale));
 };
 
 wrapper();

@@ -1,6 +1,10 @@
 import * as express from 'express';
+import * as fileUpload from 'express-fileupload';
+import { TAudioFile } from '@/types/AudioFile';
 import { speechToText } from '@/speechToText';
 const app = express();
+
+app.use(fileUpload());
 
 app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -9,12 +13,12 @@ app.use((req: express.Request, res: express.Response, next: express.NextFunction
   next();
 });
 
-app.get('/', async function (req: express.Request, res: express.Response) {
+app.post('/', async function (req: express.Request, res: express.Response) {
   const keywords = String(req.query.keywords).split(' ');
-  console.log(keywords);
   const lang = req.query.lang as string;
-  // console.log(keywords);
-  const results = await speechToText(keywords, lang);
+  const audioFile = req.files?.audio_file as TAudioFile;
+  console.log(audioFile);
+  const results = await speechToText(keywords, lang, audioFile);
   res.send(results);
 });
 

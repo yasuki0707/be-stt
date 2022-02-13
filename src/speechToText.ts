@@ -1,21 +1,22 @@
 import { checkAudioLocale } from '@/modules/CheckAudioLocale';
 import { checkAudioSize } from '@/modules/CheckAudioSize';
+import { TAudioFile } from '@/types/AudioFile';
 import { convertSpeechToText } from '@/modules/ConvertSpeechToText';
 import { processText } from '@/modules/ProcessText';
 
 require('dotenv').config();
 
-export const speechToText = async (keyWords: string[], lang: string) => {
+export const speechToText = async (keyWords: string[], lang: string, audioFile: TAudioFile) => {
   // const audioFile = process.argv[2];
-  const audioFile =
-    lang === 'ja'
-      ? './resources/audio/public_audio_ja-JP_Broadband-sample.wav'
-      : './resources/audio/public_audio_en-US_Broadband-sample.wav';
-  if (!audioFile) {
+  // const audioFile =
+  //   lang === 'ja'
+  //     ? './resources/audio/public_audio_ja-JP_Broadband-sample.wav'
+  //     : './resources/audio/public_audio_en-US_Broadband-sample.wav';
+  if (!audioFile || Object.keys(audioFile).length === 0) {
     console.log('オーディオファイルが指定されていません。');
     return;
   }
-  if (!(await checkAudioSize(audioFile))) {
+  if (!(await checkAudioSize(audioFile.size))) {
     console.log(`オーディオファイルのサイズが${process.env.AUDIO_FILE_SIZE_MAX}MBを超えています。`);
     return;
   }
@@ -28,7 +29,7 @@ export const speechToText = async (keyWords: string[], lang: string) => {
   }
 
   // convert audio data to text
-  const text = await convertSpeechToText(audioFile);
+  const text = await convertSpeechToText(audioFile, lang);
   if (!text) {
     console.log('オーディオファイルをテキストに変換できませんでした。');
     return;

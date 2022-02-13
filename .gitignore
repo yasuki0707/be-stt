@@ -4,3 +4,4 @@
 pipeline/.env
 pipeline/create-apisecret.sh
 pipeline/triggers/secret.yaml
+/resources/*

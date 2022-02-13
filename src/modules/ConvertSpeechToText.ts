@@ -1,6 +1,7 @@
 import { getAudioModel, TSpeechToTextResponse } from '@/types/SpeechToTextV1';
 import * as fs from 'fs';
 import * as path from 'path';
+import { TAudioFile } from '@/types/AudioFile';
 import { IamAuthenticator } from 'ibm-watson/auth';
 import SpeechToText = require('ibm-watson/speech-to-text/v1');
 
@@ -9,13 +10,13 @@ import SpeechToText = require('ibm-watson/speech-to-text/v1');
  * @param file path to audio file
  * @returns text extracted from audio data
  */
-export const convertSpeechToText = async (file: string): Promise<string | null> => {
-  const pathToFile = path.resolve(file);
+export const convertSpeechToText = async (audioFile: TAudioFile, lang: string): Promise<string | null> => {
+  // const pathToFile = path.resolve(file);
 
   const params = {
-    audio: fs.createReadStream(pathToFile),
+    audio: audioFile.data,
     contentType: 'application/octet-stream',
-    model: getAudioModel(pathToFile)
+    model: getAudioModel(audioFile.name, lang)
   };
 
   const API_KEY_STT = process.env.API_KEY_STT as string;

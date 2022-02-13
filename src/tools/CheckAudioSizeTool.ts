@@ -9,8 +9,8 @@ const wrapper = async () => {
   }
 
   console.log(
-    `is audio file's size within threshold?:`,
-    await checkAudioSize(audioFile)
+    `is audio file's size within threshold?:`
+    // await checkAudioSize(audioFile)
   );
 };
 
